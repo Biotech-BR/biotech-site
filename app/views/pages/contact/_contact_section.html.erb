@@ -1,0 +1,193 @@
+<section
+  id="contato"
+  class="relative isolate w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-black text-white -mt-20">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-black"></div>
+
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image:
+        linear-gradient(to right, rgba(255,255,255,0.20) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.20) 1px, transparent 1px);
+        background-size: 64px 64px;"
+    ></div>
+
+    <div class="absolute -top-56 left-[18%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/10 blur-3xl"></div>
+    <div class="absolute -bottom-72 left-[64%] h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/8 blur-3xl"></div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),rgba(0,0,0,0)_55%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.95)_72%)]"></div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/70 via-black/20 to-transparent"></div>
+
+  <div class="container-x py-24 sm:py-28 lg:py-32">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-start">
+      <div class="max-w-xl">
+        <p class="text-xs tracking-wide text-white/60">Contato • Vamos conversar</p>
+
+        <h1 class="mt-5 text-[34px] sm:text-5xl lg:text-[56px] font-extrabold leading-[1.06] tracking-tight">
+          Um contato e a Biotech já te devolve um
+          <span class="text-[rgb(var(--bio-green))]">plano claro</span>
+          de próximos passos.
+        </h1>
+
+        <p class="mt-6 text-white/70 text-[15px] sm:text-lg leading-relaxed">
+          Soluções digitais simples e seguras, com inovação, clareza e compromisso.
+          Conte o que você precisa e nós respondemos com direção: escopo, prazo e caminho.
+        </p>
+
+        <div class="mt-10 space-y-3 text-sm text-white/65">
+          <div class="flex items-center gap-3">
+            <span class="h-1.5 w-1.5 rounded-full bg-[rgb(var(--bio-green))]"></span>
+            Processo direto, sem enrolação
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="h-1.5 w-1.5 rounded-full bg-[rgb(var(--bio-blue))]"></span>
+            Engenharia bem feita + design moderno
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="h-1.5 w-1.5 rounded-full bg-white/35"></span>
+            Segurança e confidencialidade desde o início
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/55">
+          <span class="whitespace-nowrap">Produto</span><span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Design</span><span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Engenharia</span><span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Evolução</span>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6 sm:p-8 backdrop-blur">
+          <% if flash[:notice].present? %>
+            <div class="mb-5 rounded-2xl border border-[rgb(var(--bio-green))]/30 bg-[rgb(var(--bio-green))]/10 px-4 py-3 text-sm text-white">
+              <span class="font-semibold text-[rgb(var(--bio-green))]">Enviado!</span>
+              <span class="text-white/80"><%= flash[:notice] %></span>
+            </div>
+          <% end %>
+
+          <% if flash[:alert].present? %>
+            <div class="mb-5 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-white">
+              <span class="font-semibold text-red-300">Atenção:</span>
+              <span class="text-white/80"><%= flash[:alert] %></span>
+            </div>
+          <% end %>
+
+          <div
+            data-controller="contact-form"
+            data-contact-form-max-value="800"
+          >
+            <%= form_with url: "/contato", method: :post, scope: :contact_form, local: true, class: "space-y-4" do |f| %>
+              <% input =
+                "w-full rounded-2xl bg-black/30 border border-white/10 px-4 py-3 text-white placeholder:text-white/30 outline-none
+                 focus:border-[rgb(var(--bio-blue))]/50 focus:ring-4 focus:ring-[rgb(var(--bio-blue))]/15
+                 transition"
+              %>
+
+            <div class="hidden" aria-hidden="true">
+                <%= f.text_field :website, tabindex: "-1", autocomplete: "off" %>
+            </div>
+
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="block text-xs font-semibold text-white/70 mb-1.5">Nome</label>
+                  <%= f.text_field :name,
+                    required: true,
+                    autocomplete: "name",
+                    class: input,
+                    placeholder: "Seu nome" %>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-white/70 mb-1.5">Email</label>
+                  <%= f.email_field :email,
+                    required: true,
+                    autocomplete: "email",
+                    class: input,
+                    placeholder: "seu@email.com" %>
+                </div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="block text-xs font-semibold text-white/70 mb-1.5">Telefone</label>
+                  <%= f.telephone_field :phone,
+                    inputmode: "tel",
+                    autocomplete: "tel",
+                    class: input,
+                    placeholder: "(11) 99999-9999",
+                    data: { "contact-form-target": "phone" } %>
+                  <p class="mt-1 text-[11px] text-white/45"></p>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-white/70 mb-1.5">Empresa</label>
+                  <%= f.text_field :company,
+                    autocomplete: "organization",
+                    class: input,
+                    placeholder: "Nome da empresa (opcional)" %>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-white/70 mb-1.5">Assunto</label>
+                <%= f.text_field :subject,
+                  class: input,
+                  placeholder: "Site, sistema, app, integrações..." %>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between gap-3">
+                  <label class="block text-xs font-semibold text-white/70">Mensagem</label>
+                  <span class="text-[11px] text-white/45">
+                    <span data-contact-form-target="count">0</span>/<span data-contact-form-target="max">800</span>
+                  </span>
+                </div>
+
+                <%= f.text_area :message,
+                  required: true,
+                  rows: 5,
+                  class: input + " resize-none",
+                  placeholder: "Conte o objetivo, prazo e o que você já tem pronto.",
+                  data: { "contact-form-target": "message" } %>
+
+                <p class="mt-2 text-xs text-white/45 leading-relaxed">
+                  Dica: escreva 3 pontos — objetivo, prazo e referências (se tiver).
+                </p>
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                <button type="submit" class="btn-primary w-full sm:w-auto">
+                  Enviar mensagem
+                </button>
+
+                <a
+                  href="mailto:atendimento@biotechapplications.com.br"
+                  class="btn-outline w-full sm:w-auto"
+                >
+                  Enviar por email
+                </a>
+              </div>
+
+              <p class="pt-2 text-[11px] text-white/45 leading-relaxed">
+                Ao enviar, você concorda em ser contatado pela Biotech sobre este atendimento.
+              </p>
+            <% end %>
+          </div>
+        </div>
+        <div class="pointer-events-none absolute -inset-px rounded-3xl bg-[linear-gradient(135deg,rgba(45,211,227,0.12),rgba(119,215,108,0.08),rgba(255,255,255,0.04))] opacity-40 blur-xl"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-x-0 -bottom-2 h-32 sm:h-36 lg:h-44 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/90 to-black"></div>
+    <div class="absolute left-1/2 top-10 h-28 w-[120%] -translate-x-1/2 rounded-full
+                bg-[linear-gradient(90deg,rgba(45,211,227,0.08),rgba(119,215,108,0.06))]
+                blur-[90px]"></div>
+  </div>
+</section>

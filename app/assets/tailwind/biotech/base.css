@@ -1,0 +1,47 @@
+@layer base {
+  :root {
+    --bio-green: 119 215 108; /* #77D76C */
+    --bio-blue: 45 211 227;   /* #2dd3e3 */
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  }
+
+  /* HERO: Luz passando no cabo (fibra) */
+  @keyframes fiber-sweep {
+    0%   { stroke-dashoffset: 220; opacity: 0; }
+    10%  { opacity: .9; }
+    60%  { opacity: .65; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  /* HERO: partículas em “folhas” */
+  @keyframes leaf-float-a {
+    0%   { transform: translate3d(-10px, 30px, 0) rotate(-8deg); opacity: 0; }
+    12%  { opacity: .75; }
+    70%  { opacity: .75; }
+    100% { transform: translate3d(220px, -90px, 0) rotate(18deg); opacity: 0; }
+  }
+
+  @keyframes leaf-float-b {
+    0%   { transform: translate3d(-18px, -10px, 0) rotate(12deg); opacity: 0; }
+    12%  { opacity: .7; }
+    70%  { opacity: .7; }
+    100% { transform: translate3d(240px, 70px, 0) rotate(-16deg); opacity: 0; }
+  }
+
+  /* HERO: estrelas/planetas */
+  @keyframes star-pulse {
+    0%, 100% { transform: scale(1); opacity: .55; }
+    50% { transform: scale(1.12); opacity: .75; }
+  }
+
+  /* MARQUEE: loop contínuo */
+  @keyframes bio-marquee {
+    0%   { transform: translate3d(0,0,0); }
+    100% { transform: translate3d(-50%,0,0); }
+  }
+}

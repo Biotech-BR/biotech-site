@@ -1,0 +1,116 @@
+@layer components {
+  /* =========================
+     HERO FX (mobile + desktop)
+     ========================= */
+
+  .bio-fx {
+    @apply pointer-events-none absolute inset-0;
+    z-index: 0;
+  }
+
+  .bio-fx-mask {
+    @apply absolute inset-0;
+    -webkit-mask-image: radial-gradient(90% 80% at 62% 45%, #000 0%, #000 56%, transparent 82%);
+    mask-image: radial-gradient(90% 80% at 62% 45%, #000 0%, #000 56%, transparent 82%);
+  }
+
+  /* Circuito parado */
+  .circuit-static {
+    @apply absolute inset-0;
+    opacity: .9;
+    mix-blend-mode: screen;
+  }
+
+  .circuit-path {
+    stroke: rgba(45,211,227,0.26);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 18px rgba(45,211,227,0.10));
+  }
+
+  .circuit-node {
+    fill: rgba(45,211,227,0.40);
+    filter: drop-shadow(0 0 10px rgba(45,211,227,0.12));
+  }
+
+  /* Luz passando (fibra óptica) */
+  .fiber-path {
+    stroke: rgba(255,255,255,0.80);
+    stroke-width: 2.2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 28 220;
+    stroke-dashoffset: 220;
+
+    filter:
+      drop-shadow(0 0 10px rgba(45,211,227,0.40))
+      drop-shadow(0 0 24px rgba(45,211,227,0.20));
+
+    animation: fiber-sweep 3.4s ease-in-out infinite;
+  }
+
+  .fiber-path.alt {
+    stroke: rgba(119,215,108,0.55);
+    stroke-width: 2.0;
+    stroke-dasharray: 18 220;
+    animation-duration: 4.6s;
+    animation-delay: 1.2s;
+    opacity: .65;
+  }
+
+  /* Folhas pequenas */
+  .leaf-p {
+    @apply absolute;
+    width: 14px;
+    height: 14px;
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(119,215,108,0.12));
+  }
+
+  .leaf-p.a { animation: leaf-float-a 8.2s ease-in-out infinite; }
+  .leaf-p.b { animation: leaf-float-b 9.0s ease-in-out infinite; }
+
+  /* Estrelas/planetas */
+  .star-p {
+    @apply absolute rounded-full;
+    width: 7px;
+    height: 7px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.85), rgba(45,211,227,0.18) 55%, rgba(0,0,0,0) 75%);
+    filter: drop-shadow(0 0 12px rgba(45,211,227,0.10));
+    opacity: .55;
+    animation: star-pulse 4.8s ease-in-out infinite;
+  }
+
+  .star-p.big {
+    width: 10px;
+    height: 10px;
+    opacity: .5;
+    animation-duration: 6.2s;
+  }
+
+  /* Mobile: mais fraco */
+  @media (max-width: 1023px) {
+    .bio-fx { opacity: .45; }
+
+    .bio-fx-mask {
+      -webkit-mask-image: radial-gradient(85% 70% at 50% 40%, #000 0%, #000 52%, transparent 82%);
+      mask-image: radial-gradient(85% 70% at 50% 40%, #000 0%, #000 52%, transparent 82%);
+    }
+
+    .circuit-path { stroke: rgba(45,211,227,0.18); }
+    .circuit-node { fill: rgba(45,211,227,0.28); }
+    .fiber-path { opacity: .65; }
+
+    .leaf-p { width: 12px; height: 12px; }
+    .star-p { width: 6px; height: 6px; }
+    .star-p.big { width: 8px; height: 8px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fiber-path, .leaf-p, .star-p { animation: none !important; opacity: .35; }
+  }
+}

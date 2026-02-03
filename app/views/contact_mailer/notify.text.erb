@@ -1,0 +1,13 @@
+Novo contato pelo site (Biotech Applications)
+
+Nome: <%= @form.name %>
+Email: <%= @form.email %>
+Telefone: <%= @form.phone.presence || "-" %>
+Empresa: <%= @form.company.presence || "-" %>
+Assunto: <%= @form.subject.presence || "-" %>
+
+Mensagem:
+<%= @form.message %>
+
+—
+Responda este email para falar diretamente com o cliente (Reply-To configurado).

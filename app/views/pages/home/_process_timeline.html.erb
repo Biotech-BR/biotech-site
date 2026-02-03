@@ -1,0 +1,139 @@
+<section
+  id="processos"
+  class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden py-14 sm:py-16 lg:py-24"
+  data-controller="process-timeline"
+  data-process-timeline-stagger-value="420"
+  data-process-timeline-fall-value="10"
+>
+
+  <div class="pointer-events-none absolute inset-x-0 -top-16 h-20 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-transparent"></div>
+  </div>
+
+
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-black"></div>
+
+
+    <div
+      class="absolute inset-0 opacity-[0.05]"
+      style="background-image:
+        linear-gradient(to right, rgba(255,255,255,0.16) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.16) 1px, transparent 1px);
+        background-size: 72px 72px;"
+    ></div>
+
+
+    <div class="absolute -top-52 left-[20%] h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/12 blur-3xl"></div>
+    <div class="absolute -bottom-56 left-[74%] h-[660px] w-[660px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/10 blur-3xl"></div>
+
+
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),rgba(0,0,0,0)_60%)]"></div>
+  </div>
+
+  <div class="container-x">
+
+    <div class="grid gap-7 lg:grid-cols-12 lg:items-start">
+      <div class="lg:col-span-7">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.06]">
+          Como a gente transforma<br class="hidden sm:block" />
+          <span class="text-[rgb(var(--bio-green))]">ideia em produto</span>
+        </h2>
+
+        <p class="mt-4 text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl">
+          Um processo enxuto, sem enrolação: entendemos o objetivo, desenhamos a solução e entregamos em ciclos curtos, com qualidade e previsibilidade.
+        </p>
+      </div>
+
+      <div class="lg:col-span-5 lg:pt-2">
+        <p class="text-white/55 text-sm sm:text-base leading-relaxed lg:text-right max-w-xl ml-auto">
+          Da primeira conversa ao deploy: decisões rápidas, comunicação transparente e evolução contínua depois do lançamento.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <% steps = [
+    { title: "Descoberta & Escopo",       pos: "col-span-5 col-start-1 row-start-1" },
+    { title: "Mapeamento de Processos",   pos: "col-span-6 col-start-3 row-start-2" },
+    { title: "Arquitetura & Integrações", pos: "col-span-6 col-start-5 row-start-3" },
+    { title: "Planejamento de Sprints",   pos: "col-span-7 col-start-5 row-start-4" },
+    { title: "Desenvolvimento & QA",      pos: "col-span-5 col-start-8 row-start-5" },
+    { title: "Deploy & Acompanhamento",   pos: "col-span-4 col-start-9 row-start-6" }
+  ] %>
+
+
+  <div class="mt-10 sm:mt-12 lg:hidden">
+    <div class="container-x">
+      <div class="process-mobile">
+        <% steps.each_with_index do |s, i| %>
+          <div class="process-mobile__row" style="--d:<%= i %>;">
+            <div class="process-mobile__dot" aria-hidden="true"></div>
+
+ 
+            <div class="process-pill process-pill--solid" data-process-timeline-target="step" style="--d:<%= i %>;">
+              <div class="process-pill__inner">
+                <span class="process-pill__num"><%= "%02d" % (i + 1) %></span>
+                <span class="process-pill__text"><%= s[:title] %></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-10 sm:mt-12 hidden lg:block">
+    <div class="process-stage" data-process-timeline-target="root">
+
+      <div class="process-rails" aria-hidden="true">
+        <span class="process-rail"></span>
+        <span class="process-rail"></span>
+        <span class="process-rail"></span>
+        <span class="process-rail"></span>
+        <span class="process-rail"></span>
+      </div>
+
+
+      <div class="process-line" aria-hidden="true"></div>
+      <div class="process-scan" aria-hidden="true"></div>
+
+
+      <div class="process-dots" aria-hidden="true">
+        <span class="pd pd-a"></span>
+        <span class="pd pd-b"></span>
+        <span class="pd pd-c"></span>
+        <span class="pd pd-d"></span>
+        <span class="pd pd-e"></span>
+      </div>
+
+ 
+      <div class="process-grid container-x">
+        <% steps.each_with_index do |s, i| %>
+          <div
+            class="process-pill process-pill--grid <%= s[:pos] %>"
+            data-process-timeline-target="step"
+            style="--d:<%= i %>;"
+          >
+            <div class="process-pill__inner">
+              <span class="process-pill__num"><%= "%02d" % (i + 1) %></span>
+              <span class="process-pill__text"><%= s[:title] %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-x">
+    <p class="mt-8 text-center text-xs sm:text-sm text-white/45">
+      *O fluxo se adapta ao projeto, a disciplina de entrega, não.
+    </p>
+  </div>
+
+
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
+  </div>
+</section>

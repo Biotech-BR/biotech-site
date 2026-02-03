@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Biotech Design System (organizado por módulos) */
+@import "./biotech/base.css";
+@import "./biotech/components.css";
+@import "./biotech/hero_fx.css";
+@import "./biotech/marquee.css";
+@import "./biotech/cta_line.css";
+@import "./biotech/process_timeline.css";
+@import "./biotech/services_fx.css";

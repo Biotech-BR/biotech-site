@@ -1,0 +1,41 @@
+
+<%
+  position  = (local_assigns[:position] || :bottom).to_sym
+  intensity = (local_assigns[:intensity] || :soft).to_sym
+  glow      = (local_assigns[:glow] || :mix).to_sym
+
+  height =
+    case intensity
+    when :medium then "h-28 sm:h-32 lg:h-36"
+    else              "h-24 sm:h-28 lg:h-32"
+    end
+
+  gradient =
+    if position == :top
+      "bg-gradient-to-b from-black via-black/80 to-transparent"
+    else
+      "bg-gradient-to-b from-transparent via-black/80 to-black"
+    end
+
+  glow_bg =
+    case glow
+    when :blue  then "bg-[rgb(var(--bio-blue))]/[0.06]"
+    when :green then "bg-[rgb(var(--bio-green))]/[0.06]"
+    else             "bg-[linear-gradient(90deg,rgba(45,211,227,0.07),rgba(119,215,108,0.06))]"
+    end
+
+  glow_pos =
+    if position == :top
+      "bottom-[-14px]"
+    else
+      "top-10"
+    end
+%>
+
+<div class="pointer-events-none absolute inset-x-0 <%= position == :top ? "-top-10" : "bottom-0" %> <%= height %> -z-10">
+  <div class="absolute inset-0 <%= gradient %>"></div>
+
+  <div class="absolute left-1/2 <%= glow_pos %> h-24 w-[115%] -translate-x-1/2 rounded-full <%= glow_bg %> blur-[70px]"></div>
+
+  <div class="absolute inset-x-0 <%= position == :top ? "bottom-0" : "top-0" %> h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-30"></div>
+</div>

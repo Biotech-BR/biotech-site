@@ -1,0 +1,62 @@
+<div style="background:#0b0f14; padding:24px; font-family:Arial, Helvetica, sans-serif; color:#e6edf3;">
+  <div style="max-width:680px; margin:0 auto; background:#0f1622; border:1px solid rgba(255,255,255,.08); border-radius:18px; overflow:hidden;">
+    <div style="padding:18px 20px; background:linear-gradient(90deg, rgba(45,211,227,.12), rgba(119,215,108,.10)); border-bottom:1px solid rgba(255,255,255,.08);">
+      <div style="font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.70);">
+        Novo contato pelo site
+      </div>
+      <div style="margin-top:6px; font-size:18px; font-weight:700; color:#ffffff;">
+        Biotech Applications
+      </div>
+    </div>
+
+    <div style="padding:20px;">
+      <div style="display:grid; grid-template-columns:1fr; gap:10px;">
+        <div style="padding:12px 14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:14px;">
+          <div style="font-size:12px; color:rgba(255,255,255,.65);">Nome</div>
+          <div style="margin-top:4px; font-size:14px; color:#fff;"><%= @form.name %></div>
+        </div>
+
+        <div style="padding:12px 14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:14px;">
+          <div style="font-size:12px; color:rgba(255,255,255,.65);">Email</div>
+          <div style="margin-top:4px; font-size:14px; color:#fff;"><%= @form.email %></div>
+        </div>
+
+        <% if @form.phone.present? %>
+          <div style="padding:12px 14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:14px;">
+            <div style="font-size:12px; color:rgba(255,255,255,.65);">Telefone</div>
+            <div style="margin-top:4px; font-size:14px; color:#fff;"><%= @form.phone %></div>
+          </div>
+        <% end %>
+
+        <% if @form.company.present? %>
+          <div style="padding:12px 14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:14px;">
+            <div style="font-size:12px; color:rgba(255,255,255,.65);">Empresa</div>
+            <div style="margin-top:4px; font-size:14px; color:#fff;"><%= @form.company %></div>
+          </div>
+        <% end %>
+
+        <% if @form.subject.present? %>
+          <div style="padding:12px 14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:14px;">
+            <div style="font-size:12px; color:rgba(255,255,255,.65);">Assunto</div>
+            <div style="margin-top:4px; font-size:14px; color:#fff;"><%= @form.subject %></div>
+          </div>
+        <% end %>
+      </div>
+
+      <div style="margin-top:14px; padding:14px; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08); border-radius:14px;">
+        <div style="font-size:12px; color:rgba(255,255,255,.65); margin-bottom:8px;">Mensagem</div>
+        <div style="white-space:pre-wrap; font-size:14px; line-height:1.6; color:rgba(255,255,255,.92);">
+          <%= @form.message %>
+        </div>
+      </div>
+
+      <div style="margin-top:18px; font-size:12px; color:rgba(255,255,255,.55);">
+        Responda este email para falar diretamente com o cliente (Reply-To configurado).
+      </div>
+    </div>
+
+    <div style="padding:14px 20px; border-top:1px solid rgba(255,255,255,.08); font-size:12px; color:rgba(255,255,255,.55);">
+      Enviado via site • <%= Time.current.strftime("%d/%m/%Y %H:%M") %>
+    </div>
+  </div>
+</div>

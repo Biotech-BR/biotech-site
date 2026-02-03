@@ -1,0 +1,174 @@
+<section
+  id="beneficios"
+  class="relative isolate w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-black text-white"
+>
+
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-black"></div>
+
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image:
+        linear-gradient(to right, rgba(255,255,255,0.20) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.20) 1px, transparent 1px);
+        background-size: 64px 64px;"
+    ></div>
+
+    <div class="absolute -top-56 left-[18%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/10 blur-3xl"></div>
+    <div class="absolute -bottom-64 left-[72%] h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/8 blur-3xl"></div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),rgba(0,0,0,0)_55%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.35),rgba(0,0,0,0.92)_72%)]"></div>
+  </div>
+
+  <div class="container-x py-16 sm:py-20 lg:py-24">
+
+    <div class="max-w-3xl">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.08]">
+        O que você
+        <span class="relative inline-block">
+          <span class="text-[rgb(var(--bio-green))]">realmente recebe</span>
+          <span class="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-[rgb(var(--bio-green))]/80"></span>
+        </span>
+      </h2>
+
+      <p class="mt-4 text-white/65 text-[15px] sm:text-lg leading-relaxed max-w-2xl">
+        Entregamos o que muda o jogo no dia a dia: experiência, performance, segurança e evolução contínua.
+        Com clareza de processo e responsabilidade de ponta a ponta.
+      </p>
+    </div>
+
+
+    <div class="mt-10 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <% items = [
+        ["Sites Responsivos", "Layouts que se adaptam com perfeição do celular ao desktop, mantendo clareza e fluidez.", "devices"],
+        ["User Experience", "Experiência pensada para conversão: navegação, microinterações e jornada sem fricção.", "spark"],
+        ["Layout Personalizado", "Interface exclusiva e moderna, construída para a sua marca — sem cara de template.", "layout"],
+        ["Páginas Rápidas", "Performance real: carregamento rápido, imagens otimizadas e base técnica sólida.", "bolt"],
+        ["Suporte Contínuo", "Evolução sob demanda com acompanhamento, melhorias e ajustes quando você precisar.", "support"],
+        ["Pronto para o Google", "Boas práticas de SEO técnico, semântica, acessibilidade e estrutura otimizada.", "check"],
+        ["Personalização Total", "Do MVP ao produto escalável: features sob medida, integrações e automações.", "sliders"],
+        ["Integração", "Integrações com pagamentos, CRM/ERP, sistemas internos e APIs para automatizar processos.", "cogs"]
+      ] %>
+
+      <% items.each do |title, desc, icon| %>
+        <div
+          class="group rounded-3xl ring-1 ring-white/10 bg-white/[0.03] p-6 sm:p-7 backdrop-blur
+                 shadow-[0_18px_50px_rgba(0,0,0,0.35)]
+                 transition duration-300 ease-out
+                 hover:-translate-y-1 hover:scale-[1.02] hover:ring-white/20 hover:bg-white/[0.05]
+                 hover:shadow-[0_28px_70px_rgba(0,0,0,0.45)]
+                 focus-within:scale-[1.02] focus-within:ring-white/25"
+        >
+
+          <div
+            class="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-300
+                   group-hover:opacity-100
+                   bg-[radial-gradient(90%_90%_at_20%_15%,rgba(45,211,227,0.12),rgba(0,0,0,0)_55%)]"
+          ></div>
+
+
+          <div class="relative flex items-center gap-4">
+            <div class="relative h-12 w-12 rounded-2xl ring-1 ring-white/10 bg-white/5 grid place-items-center
+                        transition duration-300
+                        group-hover:ring-white/20 group-hover:bg-white/10">
+              <div class="absolute inset-0 rounded-2xl bg-[radial-gradient(120%_120%_at_30%_20%,rgba(255,255,255,0.10),rgba(0,0,0,0)_55%)] opacity-80"></div>
+
+
+              <% if icon == "devices" %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-blue))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+
+                  <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5V13a2.5 2.5 0 0 1-2.5 2.5H11"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M9 20h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 15.5V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+                  <path d="M5.2 20h2.6A1.2 1.2 0 0 0 9 18.8v-6.6A1.2 1.2 0 0 0 7.8 11H5.2A1.2 1.2 0 0 0 4 12.2v6.6A1.2 1.2 0 0 0 5.2 20Z"
+                        stroke="currentColor" stroke-width="2"/>
+                  <path d="M6.5 18.1h0.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+
+              <% elsif icon == "spark" %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-green))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2l1.4 6.2L20 10l-6.6 1.8L12 18l-1.4-6.2L4 10l6.6-1.8L12 2Z"
+                        stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M5 20l1-3M19 20l-1-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+
+
+              <% elsif icon == "layout" %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-blue))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+
+                  <path d="M4.5 6.5A2.5 2.5 0 0 1 7 4h10A2.5 2.5 0 0 1 19.5 6.5v11A2.5 2.5 0 0 1 17 20H7a2.5 2.5 0 0 1-2.5-2.5v-11Z"
+                        stroke="currentColor" stroke-width="2" />
+  
+                  <path d="M4.5 8h15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+                  <path d="M7.5 11h4.5v6H7.5v-6Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M13.5 11h3v2.8h-3V11Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M13.5 15h3v2h-3v-2Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+
+              <% elsif icon == "bolt" %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-green))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M13 2 3 14h8l-1 8 11-14h-8l0-6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+
+              <% elsif icon == "support" %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-blue))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M4 12v4a2 2 0 0 0 2 2h2v-6H6a2 2 0 0 0-2 2Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M20 12v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 20h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+
+
+              <% elsif icon == "check" %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-green))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 12a8 8 0 1 1-4-6.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="m9 12 2 2 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              <% elsif icon == "sliders" %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-blue))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 6h9M17 6h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M11 6v0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M4 12h3M11 12h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 12v0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M4 18h13M19 18h1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M14 18v0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+
+              <% else %>
+                <svg class="relative h-6 w-6 text-[rgb(var(--bio-green))]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+
+                  <path d="M10 13.5l-1.4 1.4a3 3 0 0 1-4.2 0 3 3 0 0 1 0-4.2l1.8-1.8a3 3 0 0 1 4.2 0"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                  <path d="M14 10.5l1.4-1.4a3 3 0 0 1 4.2 0 3 3 0 0 1 0 4.2l-1.8 1.8a3 3 0 0 1-4.2 0"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                  <path d="M9.5 12.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              <% end %>
+            </div>
+
+            <div class="min-w-0">
+              <h3 class="text-base sm:text-lg font-semibold text-white">
+                <%= title %>
+              </h3>
+            </div>
+          </div>
+
+          <p class="relative mt-3 text-sm sm:text-[15px] leading-relaxed text-white/65">
+            <%= desc %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-x-0 -bottom-2 h-24 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/90 to-black"></div>
+  </div>
+</section>

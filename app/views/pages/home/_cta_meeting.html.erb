@@ -1,0 +1,79 @@
+<section class="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden py-12 sm:py-14 lg:py-16">
+  <div class="pointer-events-none absolute inset-x-0 -top-14 h-16 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent"></div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-black"></div>
+
+    <div
+      class="absolute inset-0 opacity-[0.05]"
+      style="background-image:
+        linear-gradient(to right, rgba(255,255,255,0.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.18) 1px, transparent 1px);
+        background-size: 90px 90px;"
+    ></div>
+
+    <div class="absolute -top-44 left-[20%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/10 blur-3xl"></div>
+    <div class="absolute -bottom-56 left-[70%] h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/10 blur-3xl"></div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),rgba(0,0,0,0)_55%)]"></div>
+
+    <div class="cta-line">
+      <div class="cta-line__fade cta-line__fade--left" aria-hidden="true"></div>
+      <div class="cta-line__fade cta-line__fade--right" aria-hidden="true"></div>
+
+      <svg class="cta-line__svg" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+        <path class="cta-line__base"
+              d="M0 88 H260
+                 C360 88, 380 60, 460 60
+                 H740
+                 C820 60, 840 98, 940 98
+                 H1200" />
+
+        <path class="cta-line__beam"
+              d="M0 88 H260
+                 C360 88, 380 60, 460 60
+                 H740
+                 C820 60, 840 98, 940 98
+                 H1200" />
+
+        <path class="cta-line__beam cta-line__beam--alt"
+              d="M0 108 H220
+                 C320 108, 360 92, 430 92
+                 H760
+                 C860 92, 900 118, 980 118
+                 H1200" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="container-x">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-[26px] sm:text-[34px] lg:text-[40px] font-extrabold tracking-tight leading-[1.12]">
+        Vamos tirar sua ideia do papel com velocidade e clareza.
+      </h2>
+
+      <p class="mt-3 text-white/70 text-[15px] sm:text-lg leading-relaxed max-w-2xl mx-auto">
+        Um papo rápido pra entender seu objetivo, definir o caminho e montar um plano de entrega realista.
+      </p>
+
+      <div class="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+        <%= link_to "Agendar uma reunião", "/contato",
+              class: "btn-primary w-full sm:w-auto" %>
+
+        <%= link_to "Falar com a Biotech", "/contato",
+              class: "btn-outline w-full sm:w-auto" %>
+      </div>
+
+      <p class="mt-5 text-xs sm:text-sm text-white/45">
+        Sem enrolação • Escopo claro • Próximos passos definidos
+      </p>
+    </div>
+  </div>
+
+
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-16 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/75 to-black"></div>
+  </div>
+</section>

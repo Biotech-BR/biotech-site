@@ -1,0 +1,73 @@
+<section
+  class="relative isolate w-screen left-1/2 -translate-x-1/2 overflow-hidden -mt-20
+         min-h-[86vh] sm:min-h-[88vh] lg:min-h-[92vh]">
+
+  <div class="absolute inset-0 -z-10">
+    <%= image_tag "hero-about.png",
+      class: "h-full w-full object-cover object-[position:50%_center] sm:object-[position:62%_center]",
+      alt: "" %>
+
+    <div class="absolute inset-0 bg-black/45"></div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),rgba(0,0,0,0)_55%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.10),rgba(0,0,0,0.82)_72%)]"></div>
+
+    <div class="absolute -top-56 left-[18%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/10 blur-3xl"></div>
+    <div class="absolute -bottom-72 left-[58%] h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/8 blur-3xl"></div>
+  </div>
+
+  <div class="container-x min-h-[86vh] sm:min-h-[88vh] lg:min-h-[92vh]
+              pt-[8.25rem] sm:pt-[9.25rem] lg:pt-[10rem]
+              pb-24 sm:pb-32 lg:pb-36
+              flex items-center">
+    <div class="relative z-20 max-w-2xl">
+      <div class="text-left max-w-2xl space-y-6 sm:space-y-7">
+        <p class="text-xs tracking-wide text-white/70">
+          Sobre a Biotech
+        </p>
+
+        <h1 class="text-[28px] sm:text-4xl lg:text-[48px] font-extrabold leading-[1.14] sm:leading-[1.08] tracking-tight text-white">
+          Soluções digitais simples.<br class="hidden sm:block" />
+          Seguras. Feitas para crescer.
+        </h1>
+
+        <p class="text-white/70 text-[15px] sm:text-lg leading-relaxed max-w-xl">
+          A Biotech cria produtos digitais com foco no que realmente importa:
+          clareza, velocidade e uma base sólida de segurança.
+        </p>
+
+        <p class="text-white/60 text-[15px] sm:text-lg leading-relaxed max-w-xl">
+          Somos seus pareceiros para impulsionar negócios no mundo online, com
+          <span class="text-white/85 font-medium">inovação</span>,
+          <span class="text-white/85 font-medium">clareza</span> e
+          <span class="text-white/85 font-medium">compromisso</span>.
+          Do MVP ao produto escalável, entregamos com processo direto, qualidade e transparência.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-1">
+          <%= link_to "Falar com a Biotech", "#contato", class: "btn-primary w-full sm:w-auto" %>
+          <%= link_to "Ver serviços", "#servicos", class: "btn-outline w-full sm:w-auto" %>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/55 pt-1">
+          <span class="whitespace-nowrap">MVP</span>
+          <span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Sistemas</span>
+          <span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Integrações</span>
+        </div>
+
+        <p class="text-[11px] tracking-[0.22em] text-white/40 pt-2">
+          INOVAÇÃO • CLAREZA • COMPROMISSO
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-x-0 -bottom-2 h-32 sm:h-36 lg:h-44 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/90 to-black"></div>
+    <div class="absolute left-1/2 top-10 h-28 w-[120%] -translate-x-1/2 rounded-full
+                bg-[linear-gradient(90deg,rgba(45,211,227,0.08),rgba(119,215,108,0.06))]
+                blur-[90px]"></div>
+  </div>
+</section>

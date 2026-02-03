@@ -1,0 +1,35 @@
+@layer components {
+  /* Layout */
+  .container-x {
+    @apply mx-auto w-full max-w-screen-2xl px-6 sm:px-10 lg:px-16 2xl:px-20;
+  }
+
+  .card {
+    @apply rounded-3xl bg-white/5 ring-1 ring-white/10;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold
+      ring-1 ring-white/10 bg-white/5 text-white/80;
+  }
+
+  .divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  /* Botões */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition
+      focus-visible:outline-none focus-visible:ring-4
+      bg-[rgb(var(--bio-green))] text-black hover:brightness-110
+      focus-visible:ring-[rgb(var(--bio-green))/0.25];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition
+      focus-visible:outline-none focus-visible:ring-4
+      ring-1 ring-white/20 text-white hover:ring-white/35
+      focus-visible:ring-[rgb(var(--bio-blue))/0.25];
+  }
+  
+}

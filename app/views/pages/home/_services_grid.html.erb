@@ -1,0 +1,194 @@
+<section
+  id="servicos"
+  class="relative isolate w-screen left-1/2 -translate-x-1/2 overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-14 sm:pb-16 lg:pb-24">
+
+  <div class="pointer-events-none absolute inset-x-0 -top-2 h-32 sm:h-36 lg:h-44 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-transparent"></div>
+
+    <div class="absolute left-1/2 bottom-[-18px] h-28 w-[120%] -translate-x-1/2 rounded-full
+                bg-[linear-gradient(90deg,rgba(45,211,227,0.07),rgba(119,215,108,0.07))]
+                blur-[90px]"></div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-black"></div>
+
+    <div
+      class="absolute inset-0 opacity-[0.05]"
+      style="background-image:
+        linear-gradient(to right, rgba(255,255,255,0.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.18) 1px, transparent 1px);
+        background-size: 72px 72px;"
+    ></div>
+
+
+    <div class="absolute -top-56 left-[12%] h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/[0.08] blur-[70px]"></div>
+    <div class="absolute -bottom-72 left-[72%] h-[680px] w-[680px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/[0.08] blur-[80px]"></div>
+
+
+    <svg class="absolute -right-40 -top-28 hidden lg:block opacity-70"
+         width="820" height="520" viewBox="0 0 820 520" fill="none" aria-hidden="true">
+      <g stroke="rgba(45,211,227,0.38)" stroke-width="2">
+        <path d="M820 70 C 620 20, 470 70, 310 160" opacity="0.55" />
+        <path d="M820 120 C 600 70, 450 120, 280 220" opacity="0.40" />
+        <path d="M820 170 C 590 120, 430 180, 260 280" opacity="0.30" />
+      </g>
+      <g stroke="rgba(119,215,108,0.34)" stroke-width="2">
+        <path d="M820 240 C 610 190, 450 250, 300 340" opacity="0.38" />
+        <path d="M820 290 C 600 240, 440 310, 280 395" opacity="0.28" />
+      </g>
+    </svg>
+
+    <div class="absolute left-[10%] top-[38%] h-2 w-2 rounded-full bg-[rgb(var(--bio-green))]/50 blur-[1px] animate-pulse"></div>
+    <div class="absolute left-[16%] top-[52%] h-1.5 w-1.5 rounded-full bg-[rgb(var(--bio-blue))]/55 blur-[1px] animate-pulse [animation-delay:600ms]"></div>
+    <div class="absolute right-[12%] top-[46%] h-2 w-2 rounded-full bg-[rgb(var(--bio-blue))]/45 blur-[1px] animate-pulse [animation-delay:1100ms]"></div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),rgba(0,0,0,0)_58%)]"></div>
+  </div>
+
+  <div class="container-x">
+    <div class="grid gap-10 lg:gap-14 lg:grid-cols-12 lg:items-start">
+      <div class="lg:col-span-5">
+        <div class="max-w-xl space-y-5 sm:space-y-6">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="badge">Soluções sob medida</span>
+            <span class="badge">Produto • Design • Engenharia</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.08]">
+            O que a Biotech entrega
+          </h2>
+
+          <p class="text-white/70 text-base sm:text-lg leading-relaxed">
+            Construímos software com foco em experiência, performance e escala. Automatizamos processos
+            para sua operação render mais.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-1">
+            <%= link_to "Falar com a Biotech", "/contato", class: "btn-primary w-full sm:w-auto" %>
+            <%= link_to "Ver serviços", "/servicos", class: "btn-outline w-full sm:w-auto" %>
+          </div>
+
+          <p class="text-sm text-white/55 pt-2">
+            Do MVP ao produto completo. A gente desenha a solução junto com você.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="lg:col-span-7">
+        <div class="grid gap-5 sm:gap-6 sm:grid-cols-2 auto-rows-fr">
+          <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6 sm:p-7 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.10]"
+              style="background: radial-gradient(closest-side at 20% 15%, rgba(119,215,108,0.40), rgba(0,0,0,0) 60%);"></div>
+            <div class="relative flex items-start gap-4">
+              <div class="shrink-0 rounded-2xl bg-white/5 ring-1 ring-white/10 p-3">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 4h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="rgba(45,211,227,0.95)" stroke-width="2"/>
+                  <path d="M10 18h4" stroke="rgba(45,211,227,0.95)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold">Aplicativos (Web & Mobile)</h3>
+                <p class="text-white/70 leading-relaxed">
+                  MVPs e apps completos com performance, usabilidade e base sólida para evoluir.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6 sm:p-7 relative overflow-hidden lg:mt-6">
+            <div class="absolute inset-0 opacity-[0.10]"
+              style="background: radial-gradient(closest-side at 85% 20%, rgba(45,211,227,0.40), rgba(0,0,0,0) 60%);"></div>
+            <div class="relative flex items-start gap-4">
+              <div class="shrink-0 rounded-2xl bg-white/5 ring-1 ring-white/10 p-3">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 5h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="rgba(119,215,108,0.95)" stroke-width="2"/>
+                  <path d="M8 21h8" stroke="rgba(119,215,108,0.95)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 17v4" stroke="rgba(119,215,108,0.95)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold">Sistemas sob medida</h3>
+                <p class="text-white/70 leading-relaxed">
+                  Gestão, dashboards e integrações para reduzir retrabalho e aumentar eficiência.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6 sm:p-7 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-[0.10]"
+              style="background: radial-gradient(closest-side at 18% 85%, rgba(45,211,227,0.35), rgba(0,0,0,0) 60%);"></div>
+            <div class="relative flex items-start gap-4">
+              <div class="shrink-0 rounded-2xl bg-white/5 ring-1 ring-white/10 p-3">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 6a3 3 0 0 1 6 0v1a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3v1a3 3 0 0 1-6 0v-1a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3V6Z"
+                    stroke="rgba(45,211,227,0.95)" stroke-width="2" />
+                </svg>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold">Outsourcing</h3>
+                <p class="text-white/70 leading-relaxed">
+                  Engenheiros para acelerar seu time com qualidade, previsibilidade e entrega.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-6 sm:p-7 relative overflow-hidden lg:mt-6">
+            <div class="absolute inset-0 opacity-[0.10]"
+              style="background: radial-gradient(closest-side at 80% 85%, rgba(119,215,108,0.35), rgba(0,0,0,0) 60%);"></div>
+            <div class="relative flex items-start gap-4">
+              <div class="shrink-0 rounded-2xl bg-white/5 ring-1 ring-white/10 p-3">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 3h6" stroke="rgba(119,215,108,0.95)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 3v3" stroke="rgba(119,215,108,0.95)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6 10a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4v-5Z" stroke="rgba(119,215,108,0.95)" stroke-width="2"/>
+                  <path d="M10 13h.01M14 13h.01" stroke="rgba(119,215,108,0.95)" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold">RPA e automação</h3>
+                <p class="text-white/70 leading-relaxed">
+                  Robôs e integrações para automatizar rotinas, reduzir custo e ganhar escala.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-3xl bg-white/5 ring-1 ring-white/10 px-6 py-4 sm:px-7 sm:py-5">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p class="text-sm sm:text-[15px] text-white/70">
+              Precisa integrar com APIs, pagamentos, ERP ou CRM? A Biotech resolve.
+            </p>
+            <div class="text-sm text-white/60">
+              <span class="text-white/35">•</span> Integrações
+              <span class="text-white/35">•</span> Observabilidade
+              <span class="text-white/35">•</span> Segurança
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-28 sm:h-32 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
+    <div class="absolute left-1/2 -top-10 h-24 w-[92%] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/[0.05] blur-3xl"></div>
+  </div>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      .animate-pulse { animation: none !important; opacity: .35 !important; }
+    }
+  </style>
+
+  <div class="pointer-events-none absolute inset-x-0 -bottom-2 h-32 sm:h-36 lg:h-44 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/85 to-black"></div>
+    <div class="absolute left-1/2 top-10 h-28 w-[120%] -translate-x-1/2 rounded-full
+                bg-[rgb(var(--bio-green))]/[0.06] blur-[90px]"></div>
+  </div>
+
+</section>

@@ -1,0 +1,76 @@
+@layer components {
+  .cases-marquee {
+    @apply relative rounded-3xl ring-1 ring-white/10;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  }
+
+  .cases-marquee__viewport {
+    @apply relative overflow-hidden;
+    padding: 18px 0;
+
+    /* sem interação */
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+  }
+
+  .cases-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: var(--cases-gap, 18px);
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+    pointer-events: none; /* impede qualquer interação em itens */
+  }
+
+  .cases-marquee__item {
+    @apply shrink-0 rounded-2xl ring-1 ring-white/10;
+    background:
+      radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.06), rgba(0,0,0,0) 55%),
+      linear-gradient(to bottom, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+    box-shadow: 0 18px 30px rgba(0,0,0,0.35);
+    padding: 14px 18px;
+  }
+
+  .cases-marquee__logo {
+    @apply block object-contain select-none;
+    height: 66px;
+    width: auto;
+    max-width: 220px;
+  }
+
+  /* fades laterais premium */
+  .cases-marquee__fade {
+    @apply pointer-events-none absolute top-0 bottom-0;
+    width: 90px;
+    z-index: 2;
+  }
+
+  .cases-marquee__fade--left {
+    left: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.0));
+  }
+
+  .cases-marquee__fade--right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.95), rgba(0,0,0,0.0));
+  }
+
+  @media (min-width: 640px) {
+    .cases-marquee__viewport { padding: 22px 0; }
+    .cases-marquee__logo { height: 82px; max-width: 260px; }
+    .cases-marquee__fade { width: 110px; }
+    .cases-marquee__item { padding: 16px 22px; }
+  }
+
+  @media (min-width: 1024px) {
+    .cases-marquee__logo { height: 96px; max-width: 300px; }
+    .cases-marquee__fade { width: 140px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cases-marquee__track { transform: none !important; }
+  }
+}

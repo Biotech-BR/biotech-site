@@ -1,0 +1,251 @@
+<section
+  id="skills"
+  class="relative isolate w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-black text-white
+         -mt-20"
+>
+
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-black"></div>
+
+
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image:
+        linear-gradient(to right, rgba(255,255,255,0.20) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.20) 1px, transparent 1px);
+        background-size: 64px 64px;"
+    ></div>
+
+
+    <div class="absolute -top-56 left-[22%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/10 blur-3xl"></div>
+    <div class="absolute -bottom-72 left-[62%] h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/8 blur-3xl"></div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),rgba(0,0,0,0)_55%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.95)_72%)]"></div>
+  </div>
+
+
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/70 via-black/20 to-transparent"></div>
+
+
+  <div class="services-fx" aria-hidden="true">
+    <div class="services-fx-mask">
+      <svg class="services-fiber" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <path class="services-wire"
+          d="M 40 360
+             C 240 260, 340 420, 520 300
+             S 840 220, 1180 320" />
+        <path class="services-wire"
+          style="opacity:.15"
+          d="M 60 420
+             C 260 300, 360 520, 560 370
+             S 900 260, 1160 390" />
+        <path class="services-wire"
+          style="opacity:.12"
+          d="M 40 280
+             C 260 160, 380 340, 560 220
+             S 900 160, 1180 240" />
+
+        <path class="services-beam"
+          d="M 40 360
+             C 240 260, 340 420, 520 300
+             S 840 220, 1180 320" />
+        <path class="services-beam alt"
+          d="M 40 280
+             C 260 160, 380 340, 560 220
+             S 900 160, 1180 240" />
+      </svg>
+
+      <div class="leaf-p a" style="top: 52%; left: 10%; animation-delay: .2s;"></div>
+      <div class="leaf-p b" style="top: 64%; left: 22%; animation-delay: 1.6s;"></div>
+      <div class="leaf-p a" style="top: 46%; left: 36%; animation-delay: 3.4s;"></div>
+      <div class="leaf-p b" style="top: 58%; left: 50%; animation-delay: 5.2s;"></div>
+      <div class="leaf-p a" style="top: 40%; left: 70%; animation-delay: 2.2s;"></div>
+
+      <div class="star-p" style="top: 24%; left: 62%;"></div>
+      <div class="star-p big" style="top: 32%; left: 78%; animation-delay: .8s;"></div>
+      <div class="star-p" style="top: 54%; left: 86%; animation-delay: 1.6s;"></div>
+    </div>
+  </div>
+
+  <div
+    class="container-x min-h-[90vh] sm:min-h-[92vh] lg:min-h-[96vh]
+           pt-[8.25rem] sm:pt-[9.25rem] lg:pt-[10rem]
+           pb-24 sm:pb-32 lg:pb-36
+           flex items-center"
+  >
+    <div class="grid gap-12 sm:gap-14 lg:gap-16 lg:grid-cols-2 lg:items-start">
+
+      <div class="max-w-2xl">
+        <p class="text-xs tracking-wide text-white/60">Serviços • o que entregamos</p>
+
+        <h2 class="mt-5 text-[34px] sm:text-5xl lg:text-[56px] font-extrabold leading-[1.06] tracking-tight">
+          Do <span class="text-[rgb(var(--bio-green))]">MVP</span> ao produto
+          <span class="text-[rgb(var(--bio-blue))]">escalável</span>.
+        </h2>
+
+        <p class="mt-6 text-white/70 text-[15px] sm:text-lg lg:text-xl leading-relaxed max-w-xl">
+          Escolha a área e veja como a Biotech trabalha: soluções simples, seguras e prontas para crescer,
+          com processo claro, engenharia bem feita e evolução contínua.
+        </p>
+
+        <div class="mt-9 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <%= link_to "Solicitar orçamento", "/contato", class: "btn-primary w-full sm:w-auto" %>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/55">
+          <span class="whitespace-nowrap">Produto</span><span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Design</span><span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Engenharia</span><span class="text-white/25">•</span>
+          <span class="whitespace-nowrap">Entrega</span>
+        </div>
+      </div>
+
+      <div
+        class="relative"
+        data-controller="services-tabs"
+        data-services-tabs-active-value="code"
+      >
+
+        <div class="services-tabs-wrap">
+          <div class="services-tabs-head" role="tablist" aria-label="Categorias de serviços">
+            <button type="button" class="services-tab is-active"
+                    data-services-tabs-target="tab"
+                    data-action="services-tabs#select"
+                    data-value="code"
+                    aria-selected="true">
+              code
+            </button>
+
+            <button type="button" class="services-tab"
+                    data-services-tabs-target="tab"
+                    data-action="services-tabs#select"
+                    data-value="design"
+                    aria-selected="false">
+              design
+            </button>
+
+            <button type="button" class="services-tab"
+                    data-services-tabs-target="tab"
+                    data-action="services-tabs#select"
+                    data-value="tech"
+                    aria-selected="false">
+              tech
+            </button>
+
+            <span class="services-tabs-underline" data-services-tabs-target="underline" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-8 sm:grid-cols-3">
+
+          <div data-services-tabs-target="panel" data-key="code" class="services-panel">
+            <p class="services-kicker">Backend</p>
+            <ul class="services-list">
+              <li>Ruby on Rails</li>
+              <li>Node.js</li>
+              <li>Python</li>
+              <li>PostgreSQL</li>
+              <li>APIs & Integrações</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="code" class="services-panel">
+            <p class="services-kicker">Frontend</p>
+            <ul class="services-list">
+              <li>React</li>
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Tailwind</li>
+              <li>SSR/SEO</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="code" class="services-panel">
+            <p class="services-kicker">Mobile</p>
+            <ul class="services-list">
+              <li>React Native</li>
+              <li>iOS/Android</li>
+              <li>Push & Analytics</li>
+              <li>Publicação (stores)</li>
+              <li>Manutenção</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="design" class="services-panel hidden">
+            <p class="services-kicker services-kicker--blue">Produto</p>
+            <ul class="services-list">
+              <li>Discovery & estratégia</li>
+              <li>Jornada do usuário</li>
+              <li>MVP enxuto</li>
+              <li>Priorização</li>
+              <li>Roadmap</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="design" class="services-panel hidden">
+            <p class="services-kicker services-kicker--blue">UI/UX</p>
+            <ul class="services-list">
+              <li>Wireframes</li>
+              <li>Design system</li>
+              <li>Prototipação</li>
+              <li>Acessibilidade</li>
+              <li>Testes</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="design" class="services-panel hidden">
+            <p class="services-kicker services-kicker--blue">Ferramentas</p>
+            <ul class="services-list">
+              <li>Figma</li>
+              <li>FigJam</li>
+              <li>Componentes</li>
+              <li>Handoff</li>
+              <li>Documentação</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="tech" class="services-panel hidden">
+            <p class="services-kicker">Infra & DevOps</p>
+            <ul class="services-list">
+              <li>Docker</li>
+              <li>CI/CD</li>
+              <li>Observabilidade</li>
+              <li>Backups</li>
+              <li>Escalabilidade</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="tech" class="services-panel hidden">
+            <p class="services-kicker">Qualidade</p>
+            <ul class="services-list">
+              <li>Testes automatizados</li>
+              <li>Code review</li>
+              <li>Performance</li>
+              <li>Segurança</li>
+              <li>Boas práticas</li>
+            </ul>
+          </div>
+
+          <div data-services-tabs-target="panel" data-key="tech" class="services-panel hidden">
+            <p class="services-kicker">Entrega</p>
+            <ul class="services-list">
+              <li>Sprints</li>
+              <li>Ritual semanal</li>
+              <li>Kanban</li>
+              <li>Roadmap vivo</li>
+              <li>Suporte & evolução</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-x-0 -bottom-2 h-32 sm:h-36 lg:h-44 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/90 to-black"></div>
+    <div class="absolute left-1/2 top-10 h-28 w-[120%] -translate-x-1/2 rounded-full
+                bg-[linear-gradient(90deg,rgba(45,211,227,0.08),rgba(119,215,108,0.06))]
+                blur-[90px]"></div>
+  </div>
+</section>

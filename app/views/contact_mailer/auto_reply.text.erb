@@ -1,0 +1,16 @@
+Olá, <%= @form.name %>!
+
+Obrigado por entrar em contato com a Biotech.
+Recebemos sua mensagem e já estamos analisando. Em breve retornamos com os próximos passos.
+
+Resumo do seu contato
+Assunto: <%= @form.safe_subject %>
+Email: <%= @form.email %>
+Telefone: <%= @form.phone.presence || "-" %>
+Empresa: <%= @form.company.presence || "-" %>
+
+Mensagem:
+<%= @form.message %>
+
+— Biotech Applications
+atendimento@biotechapplications.com.br
