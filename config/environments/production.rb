@@ -51,8 +51,7 @@ Rails.application.configure do
   config.cache_store = :solid_cache_store
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
-  config.active_job.queue_adapter = :solid_queue
-  config.solid_queue.connects_to = { database: { writing: :queue } }
+  config.active_job.queue_adapter = :inline
 
   # -----------------------------
   # Action Mailer (Resend SMTP)
@@ -63,11 +62,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.resend.com",
-    port: 465,
+    port: 587,
     user_name: "resend",
-    password: Rails.application.credentials.dig(:resend, :api_key),
+    password: ENV["RESEND_API_KEY"],
     authentication: :plain,
-    tls: true
+    enable_starttls_auto: true
   }
 
   # Links gerados em emails

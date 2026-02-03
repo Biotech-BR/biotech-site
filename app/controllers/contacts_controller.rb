@@ -5,8 +5,8 @@ class ContactsController < ApplicationController
     @form = ContactForm.new(contact_params)
 
     if @form.valid?
-      ContactMailer.new_contact(contact_payload).deliver_later
-      ContactMailer.auto_reply(contact_payload).deliver_later
+      ContactMailer.new_contact(contact_payload).deliver_now
+      ContactMailer.auto_reply(contact_payload).deliver_now
 
       redirect_to "/contato", notice: "Recebemos sua mensagem. Vamos te responder em breve."
     else
