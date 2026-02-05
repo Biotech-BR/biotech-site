@@ -19,10 +19,20 @@ export default class extends Controller {
       this.setFocusable()
     })
 
-    window.addEventListener("resize", this.onResize, { passive: true })
+    // ResizeObserver é mais eficiente que window.resize (especialmente mobile)
+    this._ro = null
+    if ("ResizeObserver" in window) {
+      this._ro = new ResizeObserver(() => this.positionUnderline())
+      // observa o container das tabs (mais preciso)
+      const head = this.tabTargets[0]?.parentElement
+      if (head) this._ro.observe(head)
+    } else {
+      window.addEventListener("resize", this.onResize, { passive: true })
+    }
   }
 
   disconnect() {
+    if (this._ro) this._ro.disconnect()
     window.removeEventListener("resize", this.onResize)
     this.tabTargets.forEach((t) => t.removeEventListener("keydown", this.onKeydown))
   }
@@ -56,11 +66,15 @@ export default class extends Controller {
 
   select(event) {
     const value = event.currentTarget.dataset.value
-    this.activeValue = value
+    if (value === this.activeValue) return
 
+    this.activeValue = value
     this.apply()
-    this.positionUnderline()
-    this.setFocusable()
+
+    requestAnimationFrame(() => {
+      this.positionUnderline()
+      this.setFocusable()
+    })
   }
 
   apply() {
@@ -89,7 +103,6 @@ export default class extends Controller {
     const active = this.tabTargets.find((t) => t.dataset.value === this.activeValue)
     if (!active) return
 
-    const parent = active.parentElement
     const left = active.offsetLeft
     const width = active.offsetWidth
     const underlineWidth = Math.max(46, Math.floor(width * 0.62))

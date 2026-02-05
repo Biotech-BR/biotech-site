@@ -5,34 +5,29 @@
   data-process-timeline-stagger-value="420"
   data-process-timeline-fall-value="10"
 >
-
+  <!-- cola com seção de cima -->
   <div class="pointer-events-none absolute inset-x-0 -top-16 h-20 -z-10">
     <div class="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-transparent"></div>
   </div>
 
-
+  <!-- BG / FX (otimizado p/ mobile) -->
   <div class="pointer-events-none absolute inset-0 -z-10">
     <div class="absolute inset-0 bg-black"></div>
 
+    <!-- grid (agora via classe, fácil de reduzir no mobile) -->
+    <div class="process-bg-grid absolute inset-0 opacity-[0.05]"></div>
 
-    <div
-      class="absolute inset-0 opacity-[0.05]"
-      style="background-image:
-        linear-gradient(to right, rgba(255,255,255,0.16) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.16) 1px, transparent 1px);
-        background-size: 72px 72px;"
-    ></div>
+    <!-- blobs responsivos (menores e blur menor no mobile) -->
+    <div class="absolute -top-40 left-[18%] h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/10 blur-2xl
+                lg:-top-52 lg:h-[560px] lg:w-[560px] lg:bg-[rgb(var(--bio-blue))]/12 lg:blur-3xl"></div>
 
-
-    <div class="absolute -top-52 left-[20%] h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/12 blur-3xl"></div>
-    <div class="absolute -bottom-56 left-[74%] h-[660px] w-[660px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/10 blur-3xl"></div>
-
+    <div class="absolute -bottom-44 left-[76%] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/8 blur-2xl
+                lg:-bottom-56 lg:h-[660px] lg:w-[660px] lg:bg-[rgb(var(--bio-green))]/10 lg:blur-3xl"></div>
 
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),rgba(0,0,0,0)_60%)]"></div>
   </div>
 
   <div class="container-x">
-
     <div class="grid gap-7 lg:grid-cols-12 lg:items-start">
       <div class="lg:col-span-7">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.06]">
@@ -62,16 +57,19 @@
     { title: "Deploy & Acompanhamento",   pos: "col-span-4 col-start-9 row-start-6" }
   ] %>
 
-
+  <!-- MOBILE -->
   <div class="mt-10 sm:mt-12 lg:hidden">
     <div class="container-x">
       <div class="process-mobile">
         <% steps.each_with_index do |s, i| %>
-          <div class="process-mobile__row" style="--d:<%= i %>;">
+          <div class="process-mobile__row">
             <div class="process-mobile__dot" aria-hidden="true"></div>
 
- 
-            <div class="process-pill process-pill--solid" data-process-timeline-target="step" style="--d:<%= i %>;">
+            <div
+              class="process-pill process-pill--solid"
+              data-process-timeline-target="step"
+              style="--d:<%= i %>;"
+            >
               <div class="process-pill__inner">
                 <span class="process-pill__num"><%= "%02d" % (i + 1) %></span>
                 <span class="process-pill__text"><%= s[:title] %></span>
@@ -83,10 +81,9 @@
     </div>
   </div>
 
-
+  <!-- DESKTOP -->
   <div class="mt-10 sm:mt-12 hidden lg:block">
     <div class="process-stage" data-process-timeline-target="root">
-
       <div class="process-rails" aria-hidden="true">
         <span class="process-rail"></span>
         <span class="process-rail"></span>
@@ -95,10 +92,8 @@
         <span class="process-rail"></span>
       </div>
 
-
       <div class="process-line" aria-hidden="true"></div>
       <div class="process-scan" aria-hidden="true"></div>
-
 
       <div class="process-dots" aria-hidden="true">
         <span class="pd pd-a"></span>
@@ -108,7 +103,6 @@
         <span class="pd pd-e"></span>
       </div>
 
- 
       <div class="process-grid container-x">
         <% steps.each_with_index do |s, i| %>
           <div
@@ -132,7 +126,7 @@
     </p>
   </div>
 
-
+  <!-- cola com seção de baixo -->
   <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 -z-10">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black"></div>
   </div>

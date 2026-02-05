@@ -1,34 +1,31 @@
 <section
   id="skills"
-  class="relative isolate w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-black text-white
-         -mt-20"
+  class="relative isolate w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-black text-white -mt-20"
 >
-
+  <!-- BG / FX -->
   <div class="pointer-events-none absolute inset-0 -z-10">
     <div class="absolute inset-0 bg-black"></div>
 
+    <!-- grid via classe (pra reduzir no mobile) -->
+    <div class="services-bg-grid absolute inset-0 opacity-[0.06]"></div>
 
-    <div
-      class="absolute inset-0 opacity-[0.06]"
-      style="background-image:
-        linear-gradient(to right, rgba(255,255,255,0.20) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.20) 1px, transparent 1px);
-        background-size: 64px 64px;"
-    ></div>
+    <!-- blobs responsivos (bem mais leves no mobile) -->
+    <div class="absolute -top-44 left-[22%] h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/8 blur-2xl
+                sm:-top-52 sm:h-[440px] sm:w-[440px] sm:blur-3xl
+                lg:-top-56 lg:h-[520px] lg:w-[520px] lg:bg-[rgb(var(--bio-blue))]/10 lg:blur-3xl"></div>
 
-
-    <div class="absolute -top-56 left-[22%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-blue))]/10 blur-3xl"></div>
-    <div class="absolute -bottom-72 left-[62%] h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/8 blur-3xl"></div>
+    <div class="absolute -bottom-56 left-[62%] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[rgb(var(--bio-green))]/6 blur-2xl
+                sm:-bottom-64 sm:h-[520px] sm:w-[520px] sm:blur-3xl
+                lg:-bottom-72 lg:h-[620px] lg:w-[620px] lg:bg-[rgb(var(--bio-green))]/8 lg:blur-3xl"></div>
 
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),rgba(0,0,0,0)_55%)]"></div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.95)_72%)]"></div>
   </div>
 
-
   <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/70 via-black/20 to-transparent"></div>
 
-
-  <div class="services-fx" aria-hidden="true">
+  <!-- FX pesado: só no desktop -->
+  <div class="services-fx hidden lg:block" aria-hidden="true">
     <div class="services-fx-mask">
       <svg class="services-fiber" viewBox="0 0 1200 600" preserveAspectRatio="none">
         <path class="services-wire"
@@ -75,7 +72,6 @@
            flex items-center"
   >
     <div class="grid gap-12 sm:gap-14 lg:gap-16 lg:grid-cols-2 lg:items-start">
-
       <div class="max-w-2xl">
         <p class="text-xs tracking-wide text-white/60">Serviços • o que entregamos</p>
 
@@ -90,7 +86,7 @@
         </p>
 
         <div class="mt-9 flex flex-col sm:flex-row gap-3 sm:items-center">
-            <%= link_to "Solicitar orçamento", "/contato", class: "btn-primary w-full sm:w-auto" %>
+          <%= link_to "Solicitar orçamento", "/contato", class: "btn-primary w-full sm:w-auto" %>
         </div>
 
         <div class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/55">
@@ -101,12 +97,7 @@
         </div>
       </div>
 
-      <div
-        class="relative"
-        data-controller="services-tabs"
-        data-services-tabs-active-value="code"
-      >
-
+      <div class="relative" data-controller="services-tabs" data-services-tabs-active-value="code">
         <div class="services-tabs-wrap">
           <div class="services-tabs-head" role="tablist" aria-label="Categorias de serviços">
             <button type="button" class="services-tab is-active"
@@ -137,104 +128,71 @@
           </div>
         </div>
 
-        <div class="mt-8 grid gap-8 sm:grid-cols-3">
-
+        <!-- Troquei por classe pra você poder otimizar mobile melhor -->
+        <div class="services-panels mt-8 grid gap-8 sm:grid-cols-3">
+          <!-- code -->
           <div data-services-tabs-target="panel" data-key="code" class="services-panel">
             <p class="services-kicker">Backend</p>
             <ul class="services-list">
-              <li>Ruby on Rails</li>
-              <li>Node.js</li>
-              <li>Python</li>
-              <li>PostgreSQL</li>
-              <li>APIs & Integrações</li>
+              <li>Ruby on Rails</li><li>Node.js</li><li>Python</li><li>PostgreSQL</li><li>APIs & Integrações</li>
             </ul>
           </div>
 
           <div data-services-tabs-target="panel" data-key="code" class="services-panel">
             <p class="services-kicker">Frontend</p>
             <ul class="services-list">
-              <li>React</li>
-              <li>Next.js</li>
-              <li>TypeScript</li>
-              <li>Tailwind</li>
-              <li>SSR/SEO</li>
+              <li>React</li><li>Next.js</li><li>TypeScript</li><li>Tailwind</li><li>SSR/SEO</li>
             </ul>
           </div>
 
           <div data-services-tabs-target="panel" data-key="code" class="services-panel">
             <p class="services-kicker">Mobile</p>
             <ul class="services-list">
-              <li>React Native</li>
-              <li>iOS/Android</li>
-              <li>Push & Analytics</li>
-              <li>Publicação (stores)</li>
-              <li>Manutenção</li>
+              <li>React Native</li><li>iOS/Android</li><li>Push & Analytics</li><li>Publicação (stores)</li><li>Manutenção</li>
             </ul>
           </div>
 
+          <!-- design -->
           <div data-services-tabs-target="panel" data-key="design" class="services-panel hidden">
             <p class="services-kicker services-kicker--blue">Produto</p>
             <ul class="services-list">
-              <li>Discovery & estratégia</li>
-              <li>Jornada do usuário</li>
-              <li>MVP enxuto</li>
-              <li>Priorização</li>
-              <li>Roadmap</li>
+              <li>Discovery & estratégia</li><li>Jornada do usuário</li><li>MVP enxuto</li><li>Priorização</li><li>Roadmap</li>
             </ul>
           </div>
 
           <div data-services-tabs-target="panel" data-key="design" class="services-panel hidden">
             <p class="services-kicker services-kicker--blue">UI/UX</p>
             <ul class="services-list">
-              <li>Wireframes</li>
-              <li>Design system</li>
-              <li>Prototipação</li>
-              <li>Acessibilidade</li>
-              <li>Testes</li>
+              <li>Wireframes</li><li>Design system</li><li>Prototipação</li><li>Acessibilidade</li><li>Testes</li>
             </ul>
           </div>
 
           <div data-services-tabs-target="panel" data-key="design" class="services-panel hidden">
             <p class="services-kicker services-kicker--blue">Ferramentas</p>
             <ul class="services-list">
-              <li>Figma</li>
-              <li>FigJam</li>
-              <li>Componentes</li>
-              <li>Handoff</li>
-              <li>Documentação</li>
+              <li>Figma</li><li>FigJam</li><li>Componentes</li><li>Handoff</li><li>Documentação</li>
             </ul>
           </div>
 
+          <!-- tech -->
           <div data-services-tabs-target="panel" data-key="tech" class="services-panel hidden">
             <p class="services-kicker">Infra & DevOps</p>
             <ul class="services-list">
-              <li>Docker</li>
-              <li>CI/CD</li>
-              <li>Observabilidade</li>
-              <li>Backups</li>
-              <li>Escalabilidade</li>
+              <li>Docker</li><li>CI/CD</li><li>Observabilidade</li><li>Backups</li><li>Escalabilidade</li>
             </ul>
           </div>
 
           <div data-services-tabs-target="panel" data-key="tech" class="services-panel hidden">
             <p class="services-kicker">Qualidade</p>
             <ul class="services-list">
-              <li>Testes automatizados</li>
-              <li>Code review</li>
-              <li>Performance</li>
-              <li>Segurança</li>
-              <li>Boas práticas</li>
+              <li>Testes automatizados</li><li>Code review</li><li>Performance</li><li>Segurança</li><li>Boas práticas</li>
             </ul>
           </div>
 
           <div data-services-tabs-target="panel" data-key="tech" class="services-panel hidden">
             <p class="services-kicker">Entrega</p>
             <ul class="services-list">
-              <li>Sprints</li>
-              <li>Ritual semanal</li>
-              <li>Kanban</li>
-              <li>Roadmap vivo</li>
-              <li>Suporte & evolução</li>
+              <li>Sprints</li><li>Ritual semanal</li><li>Kanban</li><li>Roadmap vivo</li><li>Suporte & evolução</li>
             </ul>
           </div>
         </div>

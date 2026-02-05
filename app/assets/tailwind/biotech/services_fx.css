@@ -1,4 +1,12 @@
 @layer components {
+  /* ===== grid do fundo via classe ===== */
+  .services-bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.20) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.20) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
   /* ===== FX (fibra + partículas) ===== */
   .services-fx {
     @apply pointer-events-none absolute inset-0;
@@ -18,13 +26,14 @@
     mix-blend-mode: screen;
   }
 
+  /* drop-shadow reduzido (mais leve) */
   .services-wire {
     stroke: rgba(45,211,227,0.16);
     stroke-width: 2;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    filter: drop-shadow(0 0 18px rgba(45,211,227,0.08));
+    filter: drop-shadow(0 0 12px rgba(45,211,227,0.06));
   }
 
   .services-beam {
@@ -38,38 +47,30 @@
     stroke-dashoffset: 220;
 
     filter:
-      drop-shadow(0 0 10px rgba(45,211,227,0.40))
-      drop-shadow(0 0 24px rgba(45,211,227,0.20));
+      drop-shadow(0 0 8px rgba(45,211,227,0.32))
+      drop-shadow(0 0 16px rgba(45,211,227,0.16));
 
-    animation: fiber-sweep 3.6s ease-in-out infinite;
+    animation: fiber-sweep 3.9s ease-in-out infinite;
   }
 
   .services-beam.alt {
     stroke: rgba(119,215,108,0.55);
     stroke-width: 2.1;
     stroke-dasharray: 18 220;
-    animation-duration: 4.8s;
+    animation-duration: 5.1s;
     animation-delay: 1.2s;
     opacity: .65;
   }
 
-  /* folhas (reusa .leaf-p do hero_fx.css, mas com “shape” simples) */
+  @keyframes fiber-sweep {
+    0%   { stroke-dashoffset: 220; opacity: .10; }
+    35%  { opacity: .75; }
+    100% { stroke-dashoffset: 0; opacity: .12; }
+  }
+
   .leaf-p {
     background: rgba(119,215,108,0.78);
     clip-path: path("M20 4c-7 1-12 6-13 13 7-1 12-6 13-13Z");
-  }
-
-  /* Mobile: reduz e centraliza o FX */
-  @media (max-width: 1023px) {
-    .services-fx { opacity: .45; }
-    .services-fx-mask {
-      -webkit-mask-image: radial-gradient(95% 75% at 55% 40%, #000 0%, #000 52%, transparent 86%);
-      mask-image: radial-gradient(95% 75% at 55% 40%, #000 0%, #000 52%, transparent 86%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .services-beam { animation: none !important; opacity: .35; }
   }
 
   /* ===== Tabs premium ===== */
@@ -94,39 +95,45 @@
   .services-tab:hover { @apply text-white; }
   .services-tab.is-active { @apply text-[rgb(var(--bio-green))]; }
 
-  /* underline slider (controlado via JS) */
   .services-tabs-underline {
     @apply absolute left-0 bottom-2 h-[2px] bg-white/90;
     width: 56px;
     transform: translateX(0);
-    transition: transform 260ms cubic-bezier(.2,.8,.2,1), width 260ms cubic-bezier(.2,.8,.2,1);
+    transition: transform 240ms cubic-bezier(.2,.8,.2,1), width 240ms cubic-bezier(.2,.8,.2,1);
   }
 
-  /* ===== Conteúdo (desktop) ===== */
   .services-panel { @apply min-w-0; }
 
   .services-kicker {
     @apply text-xs font-semibold tracking-widest uppercase text-[rgb(var(--bio-green))];
   }
-
   .services-kicker--blue { color: rgb(var(--bio-blue)); }
 
   .services-list {
     @apply mt-3 space-y-2 text-white/75 text-sm;
   }
 
-  /* ===== MOBILE: COLUNAS LADO A LADO (scroll horizontal premium) ===== */
-  .services-panels {
-    /* desktop continua grid normal via classes do HTML */
+  /* ===========================
+     MOBILE LITE (O GANHO)
+     =========================== */
+  @media (max-width: 1023px) {
+    /* mata o custo do SVG/beam/mask no mobile */
+    .services-fx { display: none !important; }
+
+    /* grid menos pesado (menos linhas) */
+    .services-bg-grid {
+      opacity: 0.04;
+      background-size: 96px 96px;
+    }
   }
 
+  /* mobile pequeno: cards leves (SEM backdrop-filter) */
   @media (max-width: 639px) {
-    /* em vez de empilhar, vira “trilho” com scroll */
     .services-panels {
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: 82%;
-      gap: 18px;
+      grid-auto-columns: 84%;
+      gap: 16px;
 
       overflow-x: auto;
       overflow-y: hidden;
@@ -142,15 +149,20 @@
     .services-panel {
       scroll-snap-align: start;
 
-      /* visual premium sem virar card pesado */
       border-radius: 22px;
       border: 1px solid rgba(255,255,255,0.08);
+
       background:
         radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.06), rgba(0,0,0,0) 55%),
-        linear-gradient(to bottom, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+        linear-gradient(to bottom, rgba(255,255,255,0.022), rgba(255,255,255,0.010));
+
+      box-shadow: 0 16px 34px rgba(0,0,0,0.34);
+
       padding: 16px 16px 14px;
-      backdrop-filter: blur(10px);
+
+      /* IMPORTANTÍSSIMO: nada de blur no mobile */
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
     }
 
     .services-kicker { font-size: 11px; letter-spacing: .18em; }
@@ -158,9 +170,8 @@
     .services-list li { line-height: 1.55; }
   }
 
-  /* Mobile grande (>= 640px) pode virar 2 colunas sem scroll se preferir */
-  @media (min-width: 640px) and (max-width: 1023px) {
-    .services-panel { padding-right: 6px; }
-    .services-list { font-size: 14px; }
+  @media (prefers-reduced-motion: reduce) {
+    .services-beam { animation: none !important; opacity: .25; }
+    .services-tabs-underline { transition: none !important; }
   }
 }

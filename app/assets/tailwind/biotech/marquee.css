@@ -1,4 +1,12 @@
 @layer components {
+  /* grid do background via classe (antes era inline) */
+  .cases-bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.18) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.18) 1px, transparent 1px);
+    background-size: 88px 88px;
+  }
+
   .cases-marquee {
     @apply relative rounded-3xl ring-1 ring-white/10;
     background: linear-gradient(to bottom, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
@@ -8,11 +16,22 @@
     @apply relative overflow-hidden;
     padding: 18px 0;
 
-    /* sem interação */
     cursor: default;
     user-select: none;
     -webkit-user-select: none;
-    touch-action: none;
+
+    /* não trave scroll no mobile */
+    touch-action: pan-y;
+
+    /* isolamento (ajuda pintura) */
+    contain: layout paint;
+  }
+
+  @supports (content-visibility: auto) {
+    .cases-marquee__viewport {
+      content-visibility: auto;
+      contain-intrinsic-size: 180px;
+    }
   }
 
   .cases-marquee__track {
@@ -20,9 +39,8 @@
     align-items: center;
     gap: var(--cases-gap, 18px);
     width: max-content;
-    will-change: transform;
     transform: translate3d(0,0,0);
-    pointer-events: none; /* impede qualquer interação em itens */
+    pointer-events: none;
   }
 
   .cases-marquee__item {
@@ -30,7 +48,7 @@
     background:
       radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.06), rgba(0,0,0,0) 55%),
       linear-gradient(to bottom, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-    box-shadow: 0 18px 30px rgba(0,0,0,0.35);
+    box-shadow: 0 14px 26px rgba(0,0,0,0.33);
     padding: 14px 18px;
   }
 
@@ -39,9 +57,10 @@
     height: 66px;
     width: auto;
     max-width: 220px;
+    filter: saturate(1.02) contrast(1.02);
   }
 
-  /* fades laterais premium */
+  /* fades laterais premium (mantém) */
   .cases-marquee__fade {
     @apply pointer-events-none absolute top-0 bottom-0;
     width: 90px;
@@ -50,12 +69,12 @@
 
   .cases-marquee__fade--left {
     left: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.0));
+    background: linear-gradient(to right, rgba(0,0,0,0.92), rgba(0,0,0,0.0));
   }
 
   .cases-marquee__fade--right {
     right: 0;
-    background: linear-gradient(to left, rgba(0,0,0,0.95), rgba(0,0,0,0.0));
+    background: linear-gradient(to left, rgba(0,0,0,0.92), rgba(0,0,0,0.0));
   }
 
   @media (min-width: 640px) {
@@ -68,6 +87,28 @@
   @media (min-width: 1024px) {
     .cases-marquee__logo { height: 96px; max-width: 300px; }
     .cases-marquee__fade { width: 140px; }
+  }
+
+  /* ========= MOBILE LITE: mais leve sem ficar sem graça ========= */
+  @media (max-width: 639px) {
+    /* grid menos custoso (menos linhas) */
+    .cases-bg-grid {
+      opacity: 0.03;
+      background-size: 110px 110px;
+    }
+
+    /* card um pouco mais simples */
+    .cases-marquee__item {
+      box-shadow: 0 10px 18px rgba(0,0,0,0.28);
+      background:
+        radial-gradient(120% 120% at 30% 20%, rgba(255,255,255,0.05), rgba(0,0,0,0) 58%),
+        linear-gradient(to bottom, rgba(255,255,255,0.030), rgba(255,255,255,0.012));
+    }
+
+    /* fades menores (menos overdraw) */
+    .cases-marquee__fade { width: 72px; }
+    .cases-marquee__fade--left  { background: linear-gradient(to right, rgba(0,0,0,0.88), rgba(0,0,0,0)); }
+    .cases-marquee__fade--right { background: linear-gradient(to left,  rgba(0,0,0,0.88), rgba(0,0,0,0)); }
   }
 
   @media (prefers-reduced-motion: reduce) {

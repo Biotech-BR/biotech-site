@@ -4,12 +4,17 @@ export default class extends Controller {
   static targets = ["step", "root"]
   static values = {
     stagger: { type: Number, default: 420 },
-    fall: { type: Number, default: 10 }  
+    fall: { type: Number, default: 10 }
   }
 
   connect() {
     this._played = false
+    this._timers = []
 
+    this._reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    this._isMobile = window.matchMedia("(max-width: 1023px)").matches // < lg
+
+    // Um único IO na seção inteira (bem leve) e decide o modo
     const io = new IntersectionObserver(
       (entries) => {
         const e = entries[0]
@@ -17,10 +22,18 @@ export default class extends Controller {
         if (this._played) return
 
         this._played = true
-        this.play()
+
+        if (this._isMobile || this._reduce) {
+          // Mobile: bonito e leve -> revela tudo ao mesmo tempo (sem cascata de timeouts)
+          this.revealAll()
+        } else {
+          // Desktop: mantém stagger
+          this.play()
+        }
+
         io.disconnect()
       },
-      { threshold: 0.22 }
+      { threshold: 0.18 }
     )
 
     io.observe(this.element)
@@ -29,18 +42,28 @@ export default class extends Controller {
 
   disconnect() {
     if (this._io) this._io.disconnect()
+    if (this._timers?.length) this._timers.forEach((t) => clearTimeout(t))
+  }
+
+  revealAll() {
+    this.stepTargets.forEach((el) => {
+      el.style.setProperty("--fall", `0px`)
+      el.classList.add("is-visible")
+    })
   }
 
   play() {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    const base = reduce ? 0 : this.staggerValue
+    const base = this.staggerValue
+
     this.stepTargets.forEach((el, idx) => {
       const fall = Math.min(18, idx * 2 + this.fallValue)
       el.style.setProperty("--fall", `${fall}px`)
 
-      window.setTimeout(() => {
+      const t = window.setTimeout(() => {
         el.classList.add("is-visible")
       }, idx * base)
+
+      this._timers.push(t)
     })
   }
 }
